@@ -4,7 +4,6 @@ import { useRoute } from 'vue-router'
 
 const isScrolled = ref(false)
 const route = useRoute()
-
 const menus = [
   { name: 'Home', path: '/' },
   { name: 'About', path: '/about' },

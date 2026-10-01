@@ -27,3 +27,4 @@ import Breadcrumb from '@/components/app/Breadcrumb.vue';
   width: 100%;
 }
 </style>
+

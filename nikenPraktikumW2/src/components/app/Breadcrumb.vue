@@ -3,7 +3,6 @@ import { computed } from 'vue';
 import { useRoute } from 'vue-router';
 
 const route = useRoute();
-
 const breadcrumbs = computed(() => {
   const matched = route.matched;
   let crumbs = matched.map((m) => {
@@ -24,7 +23,6 @@ const breadcrumbs = computed(() => {
       meta: { breadcrumb: 'Event List' }
     });
   }
-
   // Prepend Beranda if it's not already the first item
   if (crumbs.length === 0 || crumbs[0].meta.breadcrumb !== 'Home') {
     crumbs.unshift({
