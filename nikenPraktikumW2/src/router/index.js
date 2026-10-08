@@ -52,7 +52,20 @@ const routes = [
         meta: { breadcrumb: 'Contact' }
       }
     ]
-  }
+  },
+  // Route khusus untuk Dashboard Organizer (Menggunakan DashboardLayout)
+  {
+  path: '/dashboard',
+  component: () => import('@/layouts/DashboardLayout.vue'),
+  children: [
+    {
+      path: '',
+      name: 'dashboard-overview',
+      component: () => import('@/views/Dashboard.vue'), // Diubah ke Dashboard.vue
+      meta: { breadcrumb: 'Overview' }
+    }
+  ]
+}
 ]
 
 const router = createRouter({
