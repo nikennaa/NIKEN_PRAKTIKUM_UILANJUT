@@ -21,8 +21,6 @@ const routes = [
       {
         path: 'browse',
         name: 'browse',
-        component: () => import('@/views/Browse.vue'),
-        meta: { breadcrumb: 'Browse' },
         redirect: '/browse/events',
         children: [
           {
@@ -53,19 +51,19 @@ const routes = [
       }
     ]
   },
-  // Route khusus untuk Dashboard Organizer (Menggunakan DashboardLayout)
+  // Route khusus untuk Dashboard Organizer
   {
-  path: '/dashboard',
-  component: () => import('@/layouts/DashboardLayout.vue'),
-  children: [
-    {
-      path: '',
-      name: 'dashboard-overview',
-      component: () => import('@/views/Dashboard.vue'), // Diubah ke Dashboard.vue
-      meta: { breadcrumb: 'Overview' }
-    }
-  ]
-}
+    path: '/dashboard',
+    component: () => import('@/layouts/DashboardLayout.vue'),
+    children: [
+      {
+        path: '',
+        name: 'dashboard-overview',
+        component: () => import('@/views/Dashboard.vue'),
+        meta: { breadcrumb: 'Overview' }
+      }
+    ]
+  }
 ]
 
 const router = createRouter({
