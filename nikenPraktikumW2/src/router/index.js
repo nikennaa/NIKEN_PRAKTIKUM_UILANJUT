@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import AppLayout from '@/layouts/App.vue'
+import DashboardLayout from '@/layouts/DashboardLayout.vue'
 
 const routes = [
   {
@@ -21,6 +22,8 @@ const routes = [
       {
         path: 'browse',
         name: 'browse',
+        component: () => import('@/views/Browse.vue'),
+        meta: { breadcrumb: 'Browse' },
         redirect: '/browse/events',
         children: [
           {
@@ -51,16 +54,20 @@ const routes = [
       }
     ]
   },
-  // Route khusus untuk Dashboard Organizer
   {
     path: '/dashboard',
-    component: () => import('@/layouts/DashboardLayout.vue'),
+    /* AREA PENYELENGGARA ACARA (DASHBOARD) */
+    component: DashboardLayout,
     children: [
       {
         path: '',
         name: 'dashboard-overview',
-        component: () => import('@/views/Dashboard.vue'),
-        meta: { breadcrumb: 'Overview' }
+        component: () => import('@/views/Dashboard.vue')
+      },
+      {
+        path: 'events',
+        name: 'dashboard-events',
+        component: () => import('@/views/EventManagement.vue')
       }
     ]
   }
